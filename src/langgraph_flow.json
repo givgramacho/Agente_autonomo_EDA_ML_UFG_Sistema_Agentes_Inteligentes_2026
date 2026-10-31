@@ -1,0 +1,32 @@
+{
+  "nodes": [
+    {"id": "upload", "type": "file_upload", "desc": "Upload CSV pelo usuário"},
+    {"id": "load", "type": "load_csv", "desc": "Carrega CSV em DataFrame isolado (ThreadLocal)"},
+    {"id": "router", "type": "intent_detection", "desc": "Detecta intenção: EDA, Regressão, Classificação, Clusterização ou Conclusão"},
+    {"id": "eda_agent", "type": "agent", "desc": "Executa EDA (schema, estatísticas descritivas, outliers, correlação)"},
+    {"id": "regression_agent", "type": "ml_agent", "desc": "Executa Regressão (Linear Simples/Múltipla, Polinomial, Métricas MSE, R², Equação da Reta)"},
+    {"id": "classification_agent", "type": "ml_agent", "desc": "Executa Classificação Supervisionada (KNN, Decision Tree, Random Forest, Matriz de Confusão, Acurácia)"},
+    {"id": "clustering_agent", "type": "ml_agent", "desc": "Executa Clusterização Não Supervisionada (Cotovelo WCSS, Silhueta, K-Means 2D e PCA)"},
+    {"id": "plots", "type": "plot_generator", "desc": "Geração e salvamento de gráficos no diretório plots/"},
+    {"id": "memory", "type": "memory_store", "desc": "Persistência do histórico conversacional e vetorial"},
+    {"id": "output", "type": "ui", "desc": "Renderização de resposta textual e artefatos visuais no Streamlit"}
+  ],
+  "edges": [
+    ["upload", "load"],
+    ["load", "router"],
+    ["router", "eda_agent"],
+    ["router", "regression_agent"],
+    ["router", "classification_agent"],
+    ["router", "clustering_agent"],
+    ["eda_agent", "plots"],
+    ["regression_agent", "plots"],
+    ["classification_agent", "plots"],
+    ["clustering_agent", "plots"],
+    ["eda_agent", "memory"],
+    ["regression_agent", "memory"],
+    ["classification_agent", "memory"],
+    ["clustering_agent", "memory"],
+    ["plots", "output"],
+    ["memory", "output"]
+  ]
+}
