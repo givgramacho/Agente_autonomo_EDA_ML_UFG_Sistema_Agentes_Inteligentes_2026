@@ -1,6 +1,6 @@
 # 🚀 Melhorias Implementadas no Agente de EDA
 
-**Data:** 2025-10-08  
+**Data:** 2025-10-08
 **Objetivo:** Refatorar e melhorar o código do agente genérico de EDA para CSV
 
 ---
@@ -8,14 +8,17 @@
 ## ✅ Melhorias Críticas Implementadas
 
 ### 1. **Correção da Variável Global DF (Segurança Multi-Usuário)**
+
 **Problema Anterior:** Uso de variável global `DF` em `tools.py` causava conflitos em ambiente multi-usuário.
 
 **Solução Implementada:**
+
 - ✅ Criado sistema **ThreadLocal** para armazenamento seguro do DataFrame
 - ✅ Funções `set_dataframe()` e `get_dataframe()` para gerenciamento seguro
 - ✅ Cada sessão/thread tem seu próprio DataFrame isolado
 
 **Arquivos Modificados:**
+
 - `src/tools.py` - Substituída variável global por ThreadLocal
 - `src/agent.py` - Atualizado para usar `set_dataframe()`
 
@@ -36,15 +39,17 @@ def get_dataframe() -> Optional[pd.DataFrame]:
 ---
 
 ### 2. **Módulo de Utilitários (`utils.py`)**
+
 **Criado novo módulo** com funções reutilizáveis:
 
-✅ **`parse_tool_params(params: str)`** - Parser robusto de parâmetros  
-✅ **`get_param(dict, key, default, type)`** - Extração com type casting  
-✅ **`cleanup_old_plots()`** - Limpeza automática de gráficos antigos  
-✅ **`validate_column_exists()`** - Validação de colunas  
-✅ **`safe_json_convert()`** - Conversão segura numpy/pandas → JSON  
+✅ **`parse_tool_params(params: str)`** - Parser robusto de parâmetros
+✅ **`get_param(dict, key, default, type)`** - Extração com type casting
+✅ **`cleanup_old_plots()`** - Limpeza automática de gráficos antigos
+✅ **`validate_column_exists()`** - Validação de colunas
+✅ **`safe_json_convert()`** - Conversão segura numpy/pandas → JSON
 
 **Benefícios:**
+
 - Redução de código duplicado em ~60%
 - Validação consistente em todas as ferramentas
 - Gerenciamento automático de espaço em disco
@@ -52,11 +57,12 @@ def get_dataframe() -> Optional[pd.DataFrame]:
 ---
 
 ### 3. **Logging Estruturado**
+
 **Implementado sistema de logging completo:**
 
-✅ Logs em todas as operações críticas  
-✅ Rastreamento de erros detalhado  
-✅ Informações de debug para troubleshooting  
+✅ Logs em todas as operações críticas
+✅ Rastreamento de erros detalhado
+✅ Informações de debug para troubleshooting
 
 ```python
 # Exemplos de logs adicionados:
@@ -68,9 +74,11 @@ logger.error(f"Error in histogram_tool: {e}")
 ---
 
 ### 4. **Limpeza Automática de Gráficos**
+
 **Problema:** Gráficos acumulavam indefinidamente no diretório `plots/`
 
 **Solução:**
+
 - ✅ Função `cleanup_old_plots()` chamada automaticamente
 - ✅ Mantém apenas 30 gráficos mais recentes
 - ✅ Remove arquivos com mais de 48 horas
@@ -79,12 +87,13 @@ logger.error(f"Error in histogram_tool: {e}")
 ---
 
 ### 5. **Tratamento de Erros Robusto**
+
 **Melhorias em todas as tools:**
 
-✅ Try-catch em todas as funções  
-✅ Mensagens de erro descritivas  
-✅ Logging de exceções  
-✅ Retorno JSON padronizado  
+✅ Try-catch em todas as funções
+✅ Mensagens de erro descritivas
+✅ Logging de exceções
+✅ Retorno JSON padronizado
 
 ```python
 try:
@@ -99,9 +108,11 @@ except Exception as e:
 ---
 
 ### 6. **Versões Fixas no requirements.txt**
+
 **Problema:** Dependências sem versão causavam quebras
 
 **Solução:**
+
 ```txt
 # Antes:
 streamlit
@@ -114,19 +125,20 @@ pandas==2.1.4
 langchain==0.1.5
 ```
 
-✅ Versões fixas e testadas  
-✅ Compatibilidade garantida  
-✅ Reprodutibilidade do ambiente  
+✅ Versões fixas e testadas
+✅ Compatibilidade garantida
+✅ Reprodutibilidade do ambiente
 
 ---
 
 ### 7. **Refatoração do `agent.py`**
+
 **Melhorias implementadas:**
 
-✅ Remoção de código comentado  
-✅ Armazenamento de referência ao LLM (`agent.llm_instance`)  
-✅ Acesso robusto ao LLM para conclusões  
-✅ Try-catch com logging em `ask_agent()`  
+✅ Remoção de código comentado
+✅ Armazenamento de referência ao LLM (`agent.llm_instance`)
+✅ Acesso robusto ao LLM para conclusões
+✅ Try-catch com logging em `ask_agent()`
 
 ```python
 # Armazenar LLM para uso posterior
@@ -139,19 +151,22 @@ llm = getattr(agent, 'llm_instance', agent.agent.llm_chain.llm)
 ---
 
 ### 8. **Limpeza do `app.py`**
+
 **Melhorias:**
 
-✅ Removido todo código comentado  
-✅ Adicionado page_icon ao Streamlit  
-✅ Logging configurado  
-✅ Código mais limpo e legível  
+✅ Removido todo código comentado
+✅ Adicionado page_icon ao Streamlit
+✅ Logging configurado
+✅ Código mais limpo e legível
 
 ---
 
 ## 📊 Ferramentas Refatoradas
 
 ### Arquivo `tools_refactored.py` Criado
+
 Contém versões melhoradas de todas as tools usando:
+
 - ✅ Parser de parâmetros utilitário
 - ✅ Validação consistente
 - ✅ Logging estruturado
@@ -159,6 +174,7 @@ Contém versões melhoradas de todas as tools usando:
 - ✅ Uso de `get_dataframe()` ThreadLocal
 
 **Tools refatoradas:**
+
 1. `boxplot_tool` - Suporte multi-coluna melhorado
 2. `scatter_tool` - Validação e cores aprimoradas
 3. `correlation_tool` - Heatmap com Seaborn
@@ -177,16 +193,16 @@ Contém versões melhoradas de todas as tools usando:
 
 ## 🔍 Comparação Antes vs Depois
 
-| Aspecto | Antes | Depois |
-|---------|-------|--------|
-| **Segurança Multi-usuário** | ❌ Variável global | ✅ ThreadLocal |
-| **Logging** | ❌ Inexistente | ✅ Completo |
-| **Tratamento de Erros** | ⚠️ Básico | ✅ Robusto |
-| **Gerenciamento de Plots** | ❌ Acumulação | ✅ Limpeza automática |
-| **Parsing de Parâmetros** | ⚠️ Duplicado | ✅ Centralizado |
-| **Versões de Dependências** | ❌ Não fixadas | ✅ Fixadas |
-| **Código Comentado** | ❌ Extensivo | ✅ Removido |
-| **Validação de Inputs** | ⚠️ Inconsistente | ✅ Padronizada |
+| Aspecto                     | Antes              | Depois                |
+| --------------------------- | ------------------ | --------------------- |
+| **Segurança Multi-usuário** | ❌ Variável global | ✅ ThreadLocal        |
+| **Logging**                 | ❌ Inexistente     | ✅ Completo           |
+| **Tratamento de Erros**     | ⚠️ Básico          | ✅ Robusto            |
+| **Gerenciamento de Plots**  | ❌ Acumulação      | ✅ Limpeza automática |
+| **Parsing de Parâmetros**   | ⚠️ Duplicado       | ✅ Centralizado       |
+| **Versões de Dependências** | ❌ Não fixadas     | ✅ Fixadas            |
+| **Código Comentado**        | ❌ Extensivo       | ✅ Removido           |
+| **Validação de Inputs**     | ⚠️ Inconsistente   | ✅ Padronizada        |
 
 ---
 
@@ -212,6 +228,7 @@ agentes_engenheiro_dados/
 ## 🚀 Próximos Passos Recomendados
 
 ### Prioridade Alta
+
 1. ⏳ **Integrar `tools_refactored.py` no `tools.py` principal**
    - Substituir ferramentas antigas pelas refatoradas
    - Testar todas as funcionalidades
@@ -222,6 +239,7 @@ agentes_engenheiro_dados/
    - CI/CD com GitHub Actions
 
 ### Prioridade Média
+
 3. ⏳ **Melhorar Memória Vetorial**
    - Integrar Chroma/FAISS nas conclusões
    - Buscar análises anteriores similares
@@ -233,6 +251,7 @@ agentes_engenheiro_dados/
    - Configurações por ambiente
 
 ### Prioridade Baixa
+
 5. ⏳ **Documentação de API**
    - Gerar docs com Sphinx
    - Exemplos de uso completos
@@ -260,14 +279,15 @@ agentes_engenheiro_dados/
 
 As melhorias implementadas transformaram o código de um protótipo funcional em uma aplicação robusta e pronta para produção. O sistema agora é:
 
-✅ **Seguro** - ThreadLocal evita conflitos multi-usuário  
-✅ **Rastreável** - Logging completo para debug  
-✅ **Eficiente** - Limpeza automática de recursos  
-✅ **Manutenível** - Código limpo e modular  
-✅ **Confiável** - Tratamento de erros robusto  
-✅ **Reprodutível** - Versões fixas de dependências  
+✅ **Seguro** - ThreadLocal evita conflitos multi-usuário
+✅ **Rastreável** - Logging completo para debug
+✅ **Eficiente** - Limpeza automática de recursos
+✅ **Manutenível** - Código limpo e modular
+✅ **Confiável** - Tratamento de erros robusto
+✅ **Reprodutível** - Versões fixas de dependências
 
 O agente está pronto para atender todos os objetivos do projeto:
+
 - ✅ Carregar CSV
 - ✅ Análises estatísticas
 - ✅ Gráficos diversos
@@ -277,6 +297,6 @@ O agente está pronto para atender todos os objetivos do projeto:
 
 ---
 
-**Desenvolvido em:** 2025-10-08  
-**Autor:** Givanildo de Sousa Gramacho 
+**Desenvolvido em:** 2026-10-31
+**Autor:** Givanildo de Sousa Gramacho
 **Projeto:** Agente Genérico de EDA para CSV

@@ -2,7 +2,7 @@
 ### 🏛️ Universidade Federal de Goiás (UFG)
 **Programa de Pós-Graduação em Sistemas de Agentes Inteligentes**  
 **Disciplina:** Aprendizado de Máquina  
-**Repositório:** [https://github.com/givgramacho/I2A2_agentes_autonomos_DataScience.git](https://github.com/givgramacho/I2A2_agentes_autonomos_DataScience.git)
+**Repositório:** [https://github.com/givgramacho/Agente_autonomo_EDA_ML_UFG_Sistema_Agentes_Inteligentes_2026.git](https://github.com/givgramacho/Agente_autonomo_EDA_ML_UFG_Sistema_Agentes_Inteligentes_2026.git)
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://seu-app.streamlit.app)
 [![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)

@@ -3,7 +3,7 @@
 **Instituição:** Universidade Federal de Goiás (UFG)  
 **Programa:** Pós-Graduação em Sistemas de Agentes Inteligentes  
 **Disciplina:** Aprendizado de Máquina (Período: 05/09/2026 a 31/10/2026)  
-**Repositório GitHub:** [https://github.com/givgramacho/I2A2_agentes_autonomos_DataScience.git](https://github.com/givgramacho/I2A2_agentes_autonomos_DataScience.git)  
+**Repositório GitHub:** [https://github.com/givgramacho/Agente_autonomo_EDA_ML_UFG_Sistema_Agentes_Inteligentes_2026.git](https://github.com/givgramacho/Agente_autonomo_EDA_ML_UFG_Sistema_Agentes_Inteligentes_2026.git)  
 **Pasta local:** `@agentes_engenheiro_dados`  
 **Referência:** `instrucao_trabalho.md` e `T2-python_scripts`
 

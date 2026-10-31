@@ -24,7 +24,7 @@
 
 \title{\textbf{Agentes Autônomos de Inteligência Artificial para Engenharia de Dados e Machine Learning}}
 \subtitle{Relatório Técnico da Disciplina de Aprendizado de Máquina}
-\author{Givanildo de Sousa Gramacho \\ \small Universidade Federal de Goiás (UFG) \\ \small Pós-Graduação em Sistemas de Agentes Inteligentes \\ \small Repositório: \url{https://github.com/givgramacho/I2A2_agentes_autonomos_DataScience.git}}
+\author{Givanildo de Sousa Gramacho \\ \small Universidade Federal de Goiás (UFG) \\ \small Pós-Graduação em Sistemas de Agentes Inteligentes \\ \small Repositório: \url{https://github.com/givgramacho/Agente_autonomo_EDA_ML_UFG_Sistema_Agentes_Inteligentes_2026.git}}
 \date{31/10/2026}
 
 \begin{document}
@@ -390,7 +390,7 @@ O dataset apresenta características típicas de problemas de detecção de frau
 Todo o código fonte está disponível em:
 
 \begin{center}
-\url{https://github.com/seu-usuario/agentes_engenheiro_dados}
+\url{https://github.com/givgramacho/Agente_autonomo_EDA_ML_UFG_Sistema_Agentes_Inteligentes_2026.git}
 \end{center}
 
 \subsection{Estrutura de Arquivos}
@@ -398,17 +398,22 @@ Todo o código fonte está disponível em:
 \begin{verbatim}
 agentes_engenheiro_dados/
 ├── src/
-│   ├── app.py                  # Interface Streamlit
-│   ├── agent.py                # Agente com memória
-│   ├── tools.py                # Ferramentas base
-│   ├── tools_refactored.py     # Ferramentas adicionais
-│   ├── memory_store.py         # Sistema de memória
-│   └── utils.py                # Funções auxiliares
-├── data/                       # Datasets
-├── plots/                      # Gráficos gerados
-├── requirements.txt            # Dependências
-├── .gitignore                  # Proteção de secrets
-└── README.md                   # Documentação completa
+│   ├── app.py                  # Interface Streamlit com botões rápidos de ML
+│   ├── agent.py                # Agente LangChain com memória persistente
+│   ├── tools.py                # Ferramentas base de EDA
+│   ├── tools_refactored.py     # Ferramentas avançadas de estatística
+│   ├── tools_ml.py             # Modelos de ML (Regressão, Classificação, Clusters, PCA)
+│   ├── memory_store.py         # Sistema de memória vetorial e buffer
+│   ├── langgraph_flow.json     # Fluxograma da arquitetura
+│   └── utils.py                # Funções utilitárias e gerenciamento de plots
+├── data/                       # Datasets de análise
+├── plots/                      # Gráficos e matrizes geradas
+├── test_ml_capabilities.py     # Suite de testes de Machine Learning
+├── test_memoria.py             # Script de teste de memória
+├── requirements.txt            # Dependências Python
+├── pyproject.toml              # Especificação de dependências
+├── .gitignore                  # Proteção de secrets e dados sensíveis
+└── README.md                   # Documentação completa do projeto
 \end{verbatim}
 
 \subsection{Principais Tecnologias}
