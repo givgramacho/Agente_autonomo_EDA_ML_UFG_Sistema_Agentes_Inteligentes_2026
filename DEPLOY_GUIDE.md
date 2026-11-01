@@ -39,6 +39,7 @@ git push -u origin main
 Acesse: `https://github.com/SEU-USUARIO/agentes_engenheiro_dados`
 
 Verifique que os arquivos estão lá:
+
 - ✅ `src/app.py`
 - ✅ `src/agent.py`
 - ✅ `requirements.txt`
@@ -60,9 +61,7 @@ Verifique que os arquivos estão lá:
 ### 2.2 Criar Novo App
 
 1. Clique no botão **"New app"** (canto superior direito)
-
 2. Preencha os campos:
-
    - **Repository:** `SEU-USUARIO/agentes_engenheiro_dados`
    - **Branch:** `main`
    - **Main file path:** `src/app.py`
@@ -126,6 +125,7 @@ https://share.streamlit.io/seu-usuario/agentes_engenheiro_dados/main/src/app.py
    - Faça upload de `creditcard.csv` ou qualquer CSV
 
 2. **Fazer Perguntas:**
+
    ```
    - "Mostre o schema do dataset"
    - "Crie um histograma da coluna Amount"
@@ -145,9 +145,11 @@ Edite o arquivo `README.md` e substitua:
 
 ```markdown
 # ANTES:
+
 👉 **[Acessar Agente EDA Online](https://seu-app.streamlit.app)**
 
 # DEPOIS:
+
 👉 **[Acessar Agente EDA Online](https://agente-eda-seu-usuario.streamlit.app)**
 ```
 
@@ -168,6 +170,7 @@ git push
 **Causa:** Dependência faltando em `requirements.txt`
 
 **Solução:**
+
 ```bash
 # Local: instale a dependência
 pip install nome-da-dependencia
@@ -208,10 +211,11 @@ O Streamlit Cloud fará redeploy automaticamente.
 **Soluções:**
 
 1. **Otimizar imports:**
+
    ```python
    # Em vez de importar tudo no topo
    # Importe apenas quando necessário
-   
+
    @st.cache_resource
    def load_model():
        from langchain_google_genai import ChatGoogleGenerativeAI
@@ -219,6 +223,7 @@ O Streamlit Cloud fará redeploy automaticamente.
    ```
 
 2. **Usar cache:**
+
    ```python
    @st.cache_data
    def load_csv(path):
@@ -226,6 +231,7 @@ O Streamlit Cloud fará redeploy automaticamente.
    ```
 
 3. **Reduzir max_iterations:**
+
    ```python
    # Em agent.py
    max_iterations=5  # em vez de 10
@@ -315,16 +321,19 @@ Antes de entregar o relatório, verifique:
 Depois do deploy, atualize estas URLs:
 
 ### 1. No README.md
+
 ```markdown
 **Link da Aplicação:** https://agente-eda-seu-usuario.streamlit.app
 ```
 
 ### 2. No relatório LaTeX (relatorio.tex)
+
 ```latex
 \url{https://agente-eda-seu-usuario.streamlit.app}
 ```
 
 ### 3. No relatório PDF
+
 Compile o LaTeX e gere o PDF com as URLs corretas.
 
 ---
@@ -333,13 +342,14 @@ Compile o LaTeX e gere o PDF com as URLs corretas.
 
 Agora você tem:
 
-✅ Código no GitHub  
-✅ App online no Streamlit Cloud  
-✅ README completo  
-✅ Relatório LaTeX pronto  
-✅ Secrets protegidos  
+✅ Código no GitHub
+✅ App online no Streamlit Cloud
+✅ README completo
+✅ Relatório LaTeX pronto
+✅ Secrets protegidos
 
 **Link do seu app:**
+
 ```
 https://agente-eda-seu-usuario.streamlit.app
 ```
@@ -351,12 +361,15 @@ https://agente-eda-seu-usuario.streamlit.app
 ## 📞 Suporte
 
 **Streamlit Community:**
+
 - https://discuss.streamlit.io/
 
 **LangChain Discord:**
+
 - https://discord.gg/langchain
 
 **GitHub Issues:**
+
 - https://github.com/SEU-USUARIO/agentes_engenheiro_dados/issues
 
 ---

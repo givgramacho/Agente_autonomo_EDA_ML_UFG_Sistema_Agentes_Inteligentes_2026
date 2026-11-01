@@ -13,8 +13,8 @@ logger = logging.getLogger(__name__)
 # Carregar variáveis de ambiente do arquivo .env
 load_dotenv()
 
-st.set_page_config(page_title="Agente EDA CSV", layout="wide", page_icon="📊")
-st.title("📊 Agente Genérico de EDA em CSV")
+st.set_page_config(page_title="Agente Engenheiro de Dados e de Machine Learning", layout="wide", page_icon="📊")
+st.title("📊 Agente Engenheiro de Dados e de Machine Learning")
 
 # Inicializar session_state para persistir o agente e LLM
 if 'agent' not in st.session_state:
